@@ -2,6 +2,8 @@ package com.example.SMS.Controller;
 
 import com.example.SMS.Model.Student;
 import com.example.SMS.Service.StudentService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,12 +12,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/students")
 public class StudentController {
+    @Autowired
+    StudentService service;
 
-    private final StudentService service;
-
-    public StudentController(StudentService service) {
+    /* public StudentController(StudentService service) {
         this.service = service;
-    }
+    } */
 
     @PostMapping
     public ResponseEntity<Student> addStudent(@RequestBody Student student) {
